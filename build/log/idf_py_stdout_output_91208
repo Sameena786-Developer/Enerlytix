@@ -1,0 +1,8 @@
+Command: ninja all
+[1/4] cd /home/sam/projects/esp32_firmware/build && /home/sam/.espressif/python_env/idf6.2_py3.14_env/bin/python /home/sam/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/sam/projects/esp32_firmware/build/partition_table/partition-table.bin /home/sam/projects/esp32_firmware/build/enerlytix_ai.bin
+enerlytix_ai.bin binary size 0xdba90 bytes. Smallest app partition is 0x100000 bytes. 0x24570 bytes (14%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /home/sam/projects/esp32_firmware/build/bootloader && /home/sam/.espressif/python_env/idf6.2_py3.14_env/bin/python /home/sam/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/sam/projects/esp32_firmware/build/bootloader/bootloader.bin
+Bootloader binary size 0x65c0 bytes. 0xa40 bytes (9%) free.
+[3/4] No install step for 'bootloader'
+[4/4] Completed 'bootloader'

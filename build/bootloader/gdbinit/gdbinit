@@ -1,0 +1,2 @@
+source /home/sam/projects/esp32_firmware/build/bootloader/gdbinit/symbols
+source /home/sam/projects/esp32_firmware/build/bootloader/gdbinit/connect

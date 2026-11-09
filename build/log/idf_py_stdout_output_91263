@@ -1,0 +1,42 @@
+Command: ninja flash
+[1/5] cd /home/sam/projects/esp32_firmware/build && /home/sam/.espressif/python_env/idf6.2_py3.14_env/bin/python /home/sam/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/sam/projects/esp32_firmware/build/partition_table/partition-table.bin /home/sam/projects/esp32_firmware/build/enerlytix_ai.bin
+enerlytix_ai.bin binary size 0xdba90 bytes. Smallest app partition is 0x100000 bytes. 0x24570 bytes (14%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/sam/projects/esp32_firmware/build/bootloader && /home/sam/.espressif/python_env/idf6.2_py3.14_env/bin/python /home/sam/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/sam/projects/esp32_firmware/build/bootloader/bootloader.bin
+Bootloader binary size 0x65c0 bytes. 0xa40 bytes (9%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 enerlytix_ai.bin --diff-with bootloader/bootloader_flashed.bin partition_table/partition-table_flashed.bin enerlytix_ai_flashed.bin
+esptool v5.6.0
+Serial port /dev/ttyUSB0:
+Connecting.....
+[1A[2K[1A[2KConnected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                88:f1:55:30:e2:a4
+
+Uploading stub flasher...
+Running stub flasher...
+[1A[2K[1A[2KStub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+
+Writing 'bootloader/bootloader.bin' at 0x00001000...
+SHA digest in image updated.
+SHA digest in image updated.
+No changed sectors found, verifying if data is in flash...
+[1A[2K'bootloader/bootloader.bin' at 0x00001000 verified.
+
+Writing 'partition_table/partition-table.bin' at 0x00008000...
+No changed sectors found, verifying if data is in flash...
+[1A[2K'partition_table/partition-table.bin' at 0x00008000 verified.
+
+Writing 'enerlytix_ai.bin' at 0x00010000...
+No changed sectors found, verifying if data is in flash...
+[1A[2K'enerlytix_ai.bin' at 0x00010000 verified.
+
+Hard resetting via RTS pin...
